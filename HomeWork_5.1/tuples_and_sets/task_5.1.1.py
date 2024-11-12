@@ -12,11 +12,13 @@ print(min(tuples_nums))
 
 print(sum(tuples_nums))
 
-print(sorted(genres_books))
-print(sorted(tuples_nums))
+sorted_books = tuple(sorted(genres_books))
+print(sorted_books)
+sorted_nums = tuple(sorted(tuples_nums))
+print(sorted_nums)
 
-print(sorted(genres_books, reverse=True))
-print(sorted(tuples_nums, reverse=True))
+print(tuple(sorted(genres_books, reverse=True)))
+print(tuple(sorted(tuples_nums, reverse=True)))
 
 genres_list = list(genres_books)
 genres_list.sort()
