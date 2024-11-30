@@ -23,7 +23,7 @@ words_hard = {
     }
 
 
-def get_words_by_level(choice):
+def get_user_level(choice):
     """Возвращает слова и уровень сложности на основе выбора."""
 
     if choice == 'Средний':

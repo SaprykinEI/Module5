@@ -1,40 +1,28 @@
-from levels import get_words_by_level
-from utils import ask_question
-from rank import get_rank
+import json
+
+from levels import get_user_level
+from utils import base_program
+from rank import get_rank, levels
 
 
-def main():
-    print("Уровни сложности: ")
-    print("Легкий")
-    print("Средений")
-    print("Тяжелый\n")
-
-    choice = input("Выберите уровень сложности: ").replace(' ', '').title()
-    words = get_words_by_level(choice)
+user_name = input("Как вас зовут? ")
 
 
-    answers = {}
-    right = []
-    incorrect = []
-    counting_responses = 0
+print("Уровни сложности: ")
+print("Легкий")
+print("Средений")
+print("Тяжелый\n")
+
+choice = input("Выберите уровень сложности: ").replace(' ', '').title()
+
+test_words = get_user_level(choice)
+test_answer = base_program(test_words)
+result = get_rank(test_answer, levels)
+print(f"\nВаш ранг: {result}\n")
 
 
-    for word, translation in words.items():
-        if ask_question(word, translation):
-            print(f"Верно, {word.title()} - это {translation}\n")
-            answers[word] = True
-            right.append(word)
-            counting_responses += 1
-        else:
-            print(f"Неверно, {word.title()} - это {translation}\n")
-            answers[word] = False
-            incorrect.append(word)
+with open(user_name, 'w', encoding='UTF-8') as file:
+    json.dump(test_answer, file, indent=2)
 
 
-    print(f'Вы правильно перевели слова: {', '.join(right).title()}')
-    print(f'Вы неправильно перевели слова: {', '.join(incorrect).title()}')
-    print(f"Ваш ранг: {get_rank(counting_responses)}")
 
-
-if __name__ == "__main__":
-    main()

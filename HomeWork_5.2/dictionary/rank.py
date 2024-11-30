@@ -7,6 +7,20 @@ levels = {
     5: "Отлично"
     }
 
-def get_rank(counting_responses):
+def get_rank(answers, levels):
     """Возвращает ранг пользователя на основе правильных ответов."""
-    return levels.get(counting_responses, "Нет ранга")
+
+    rank = ''
+    counting_responses = 0
+
+    for correct in answers.values():
+        if correct:
+            counting_responses += 1
+
+    print(answers)
+
+    for answer, level in levels.items():
+        if counting_responses == answer:
+            rank = level
+
+    return rank
