@@ -5,7 +5,7 @@ from utils import base_program
 from rank import get_rank, levels
 
 
-user_name = input("Как вас зовут? ")
+user_name = input("Здравствуйте, как вас зовут? ")
 
 
 print("Уровни сложности: ")
