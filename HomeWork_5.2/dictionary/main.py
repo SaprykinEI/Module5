@@ -1,8 +1,10 @@
 import json
 
+from creat_file import create_json_file
 from levels import get_user_level
 from utils import base_program
-from rank import get_rank, levels
+from rank import get_rank
+
 
 
 user_name = input("Здравствуйте, как вас зовут? ")
@@ -17,12 +19,20 @@ choice = input("Выберите уровень сложности: ").replace('
 
 test_words = get_user_level(choice)
 test_answer = base_program(test_words)
-result = get_rank(test_answer, levels)
+result = get_rank(test_answer)
+
 print(f"\nВаш ранг: {result}\n")
 
 
-with open(user_name, 'w', encoding='UTF-8') as file:
-    json.dump(test_answer, file, indent=2)
+creating_json = create_json_file(user_name, test_answer)
+
+
+
+
+
+
+
+
 
 
 

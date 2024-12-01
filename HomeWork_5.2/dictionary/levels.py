@@ -1,30 +1,17 @@
-words_easy = {
-    "family": "семья",
-    "hand": "рука",
-    "people": "люди",
-    "evening": "вечер",
-    "minute": "минута",
-    }
-
-words_medium = {
-    "believe": "верить",
-    "feel": "чувствовать",
-    "make": "делать",
-    "open": "открывать",
-    "think": "думать",
-    }
-
-words_hard = {
-    "rural": "деревенский",
-    "fortune": "удача",
-    "exercise": "упражнение",
-    "suggest": "предлагать",
-    "except": "кроме",
-    }
+import json
 
 
 def get_user_level(choice):
     """Возвращает слова и уровень сложности на основе выбора."""
+
+    with open('questions.json', 'r', encoding='utf-8') as file:
+        data = json.load(file)
+
+    questions = data[0]["questions"]
+
+    words_easy = questions[0]
+    words_medium = questions[1]
+    words_hard = questions[2]
 
     if choice == 'Средний':
         print(f"Ваш уровень: 'Средний'\n")
