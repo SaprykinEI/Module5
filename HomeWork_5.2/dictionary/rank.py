@@ -7,6 +7,7 @@ def get_rank(answers):
     with open('questions.json', 'r', encoding='utf-8') as file:
         data_level = json.load(file)
 
+
     level_data = data_level[1]["levels"]
 
     rank = ''
@@ -19,7 +20,7 @@ def get_rank(answers):
     print(answers)
 
     for number, level in level_data.items():
-        if counting_responses == number:
+        if counting_responses == int(number):
             rank = level
 
 
