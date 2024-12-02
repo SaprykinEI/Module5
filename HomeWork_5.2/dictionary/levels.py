@@ -4,8 +4,6 @@ import json
 def get_user_level(choice, json_file):
     """Возвращает слова и уровень сложности на основе выбора."""
 
-
-
     questions = json_file[0]["questions"]
 
     words_easy = questions[0]
