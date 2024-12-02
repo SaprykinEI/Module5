@@ -1,14 +1,10 @@
 import json
 
 
-def get_rank(answers):
+def get_rank(answers, json_file):
     """Возвращает ранг пользователя на основе правильных ответов."""
 
-    with open('questions.json', 'r', encoding='utf-8') as file:
-        data_level = json.load(file)
-
-
-    level_data = data_level[1]["levels"]
+    level_data = json_file[1]["levels"]
 
     rank = ''
     counting_responses = 0

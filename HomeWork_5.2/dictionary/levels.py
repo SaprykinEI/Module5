@@ -1,13 +1,12 @@
 import json
 
 
-def get_user_level(choice):
+def get_user_level(choice, json_file):
     """Возвращает слова и уровень сложности на основе выбора."""
 
-    with open('questions.json', 'r', encoding='utf-8') as file:
-        data = json.load(file)
 
-    questions = data[0]["questions"]
+
+    questions = json_file[0]["questions"]
 
     words_easy = questions[0]
     words_medium = questions[1]
